@@ -1,21 +1,44 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
-    
-body {
-    font-family: 'Poppins', Arial, sans-serif;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 0;
-    margin-right: 0;
-  
+/* Dynamic Colors */
+:root {
+  --primary-color: #4c6ef5;
+  --secondary-color: #4052b5;
+  --link-color: blue;
+  --link-hover-color: red;
+  --table-bg-color: #ffffff;
+  --table-header-bg-color: var(--primary-color);
+  --table-header-text-color: #fff;
+  --table-cell-bg-color: #f9f9f9;
+  --table-cell-hover-bg-color: #e4e7eb;
+  --input-bg-color: #fff;
+  --button-bg-color: var(--link-color);
+  --button-hover-bg-color: #4052b5;
+  --pagination-bg-color: #fff;
+  --pagination-border-color: #ccc;
+  --pagination-hover-bg-color: #4c6ef5;
+  --pagination-hover-text-color: #fff;
+  --divider-bg-color: #dde0e4;
 }
 
-   h1 {
+/* Reset and Defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Heading Styles */
+h1 {
   font-size: 1.5rem;
   font-weight: normal;
   padding: 10px 20px;
@@ -27,410 +50,173 @@ body {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-
+/* Link Styles */
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
 
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Table Styles */
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    animation: tableFadeIn 0.5s ease-in-out;
-    max-width: 800px;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--table-bg-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  animation: tableFadeIn 0.5s ease-in-out;
+  max-width: 800px;
 }
 
 @keyframes tableFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+/* Table Header Styles */
 th {
-    cursor: pointer;
-    padding: 15px;
-    background-color: #4c6ef5;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 2px solid #fff;
-    transition: background-color 0.3s ease;
+  cursor: pointer;
+  padding: 15px;
+  background-color: var(--table-header-bg-color);
+  color: var(--table-header-text-color);
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff;
+  transition: background-color 0.3s ease;
 }
 
 th:hover {
-    background-color: #4052b5;
-}
-
-thead {
-  position: relative;
+  background-color: var(--secondary-color);
 }
 
 th a {
-  color: blue; /* Default link color */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease; /* Transition effect for color change */
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover,
 th a:hover {
-  color: red; /* Red link color on hover */
+  color: var(--link-hover-color);
+  animation: fadeIn 0.3s ease;
 }
- 
- th a {
-   color: white;
- }
 
 th a:link {
-  color: white; /* White link color */
+  color: white;
 }
 
-/* Add a fade-in animation on hover */
-a:hover,
-th a:hover {
-  animation: fadeIn 0.3s ease; /* Apply fadeIn animation on hover */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0; /* Start with opacity 0 */
-  }
-  to {
-    opacity: 1; /* Fade to opacity 1 */
-  }
-}
-
-
+/* Table Cell Styles */
 td, th {
-    border: 1px solid #ccc;
-    padding: 15px;
+  border: 1px solid #ccc;
+  padding: 15px;
 }
 
+/* Table Row Styles */
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: var(--table-cell-bg-color);
 }
 
 tr:hover {
-    background-color: #d1e4f7;
+  background-color: var(--table-cell-hover-bg-color);
 }
 
 tr:hover td:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 tr:hover td:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* Persona Section Styles */
+#persona {
+  margin-top: 30px;
+}
+
+/* Ingredients Section Styles */
+#ingredients {
+  padding-top: 7px;
+}
+
+/* Recipes Section Styles */
+#recipes {
+  margin-top: 30px;
+}
+
+/* Input and Button Styles */
+#filter {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 70%;
+  background-color: var(--input-bg-color);
+}
+
+button {
+  padding: 8px 15px;
+  background-color: var(--button-bg-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .pagination span {
-    cursor: pointer;
-    padding: 10px 15px;
-    background-color: #4c6ef5;
-    color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin: 0 5px;
+  border: 1px solid var(--pagination-border-color);
+  border-radius: 4px;
+  background-color: var(--pagination-bg-color);
 }
 
 .pagination span:hover {
-    background-color: #4052b5;
+  background-color: var(--pagination-hover-bg-color);
+  color: var(--pagination-hover-text-color);
+  border-color: var(--pagination-hover-bg-color);
 }
 
-#content {
-    display: inline-block;
-    margin-top: 10px;
+/* Additional styles for the current page indicator */
+.pagination span.active {
+  background-color: var(--pagination-hover-bg-color);
+  color: var(--pagination-hover-text-color);
+  border-color: var(--pagination-hover-bg-color);
 }
 
-.infoTable, .recipesTable, #skillList {
-    text-align: center;
+/* Divider Styles */
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: var(--divider-bg-color);
+  margin: 5px 0;
 }
-
-.recipesTable {
-    text-align: left;
-}
-
-.recipesTable td, .recipesTable th {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.caption {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#skillList {
-    text-align: left;
-}
-
-#skillList th, #skillList td {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-@media screen and (min-width: 1080px) {
-    #skillList {
-        width: 80%;
-    }
-}
-
-.ui.sortable.table thead th:hover {
-    background: auto !important;
-}
-
-.wk, .rs, .nu, .rp, .ab,
-.Weak, .Resist, .Null, .Repel, .Absorb {
-    font-weight: bold;
-}
-
-.wk, .Weak { color: #db2828 !important; }
-.rs, .Resist { color: #2185d0 !important; }
-.nu, .Null { color: #b0b0b0 !important; }
-.rp, .Repel { color: #fbbd08 !important; }
-.ab, .Absorb { color: #21ba45 !important; }
-
-.✓ {
-  color: #31ce3e !important;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.✘ {
-  color: #db2828 !important;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-
-.left-border {
-    border-left: 1px solid rgba(34,36,38,.1) !important;
-}
-
-@media only screen and (max-width: 768px) {
-    .mobile-hidden {
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 769px) {
-    .desktop-hidden {
-        display: none;
-    }
-}
-
-
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.search-container input [type="text"] {
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  color: #333;
-  transition: border-color 0.3s ease;
-}
-
-.search-container button {
-  padding: 10px 20px;
-  background-color: #4c6ef5;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.search-container button:hover {
-  background-color: #4052b5;
-}
-/* Select Styles */
-select {
-    font-size: 16px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #333;
-    transition: border-color 0.3s ease;
-}
-
-/* Textarea Styles */
-textarea {
-    font-size: 16px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #333;
-    transition: border-color 0.3s ease;
-}
-
-/* Input Styles */
-input {
-    font-size: 16px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: #333;
-    transition: border-color 0.3s ease;
-}
-
-
-button {
-  padding: 10px 20px;
-  background-color: #4c6ef5;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
- /* Add a transition for smooth color change */
-#main a,
-#main th a {
-  color: blue; /* Default link color */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease; /* Transition effect for color change */
-}
-
-#main a:hover,
-#main th a:hover {
-  color: red; /* Red link color on hover */
-}
- 
- #main th a {
-   color: white;
- }
-
-#main th a:link {
-  color: white; /* White link color */
-}
-
-/* Add a fade-in animation on hover */
-#main a:hover,
-#main th a:hover {
-  animation: fadeIn 0.3s ease; /* Apply fadeIn animation on hover */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0; /* Start with opacity 0 */
-  }
-  to {
-    opacity: 1; /* Fade to opacity 1 */
-  }
-}
-
-#accordion {
-  text-align: left;
-  box-sizing: border-box;
-}
-
-#main h1,
-#main h2,
-#main h3,
-#main h4,
-#main h5,
-#main h6 {
-  color: #333;
-}
-
-#main h1 {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-#main h2 {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-#main h3 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-#main h4 {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-#main h5 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-#main h6 {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-#main p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #222;
-}
-
-
- 
-div.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
-
-div.pagination span {
-  padding: 5px;
-  margin: 0 5px;
-  background-color: #4c6ef5;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-div.pagination span:hover {
-  background-color: rebeccapurple;
-}
-
-div.pagination span:first-child span,
-div.pagination span:last-child span {
-  position: relative;
-  left: -0.4em;
-}
-
-div.pagination span:last-child span {
-  right: -0.4em;
-}
-
-
-
-     #ingredients {
- padding-top: 7px;
-      }
-
-      #recipes {
-        margin-top: 30px;
-      }

@@ -13,7 +13,13 @@
 
     <input placeholder="Filter Persona" type="text" id="filter" name="filter">
     <button ng:click="filter = ''">Clear</button>
-
+    <div class="pagination" ng:show="numRecipes > perPage">
+        <span ng:click="pageNum = 0">⇤⇤</span>
+        <span ng:click="pageNum = pageNum - 1">⇤</span> Page {{pageNum + 1}} /
+        {{ceil(numRecipes / perPage)}}
+        <span ng:click="pageNum = pageNum + 1">⇥</span>
+        <span ng:click="pageNum = lastPage">⇥⇥</span>
+    </div>
     <table class="custom-table centered">
         <thead>
             <tr>
@@ -32,13 +38,13 @@
                             <a
                                 href='#/persona/{{persona.name}}'>{{persona.name}}</a>
                             ({{persona.level}} / {{persona.arcana}})
+                        <div class="divider"></div>
                         </div>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-
     <div class="pagination" ng:show="numRecipes > perPage">
         <span ng:click="pageNum = 0">⇤⇤</span>
         <span ng:click="pageNum = pageNum - 1">⇤</span> Page {{pageNum + 1}} /
@@ -46,7 +52,6 @@
         <span ng:click="pageNum = pageNum + 1">⇥</span>
         <span ng:click="pageNum = lastPage">⇥⇥</span>
     </div>
-
 </ng:show>
 
 <hr>
