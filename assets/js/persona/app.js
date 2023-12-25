@@ -43,7 +43,7 @@ angular.service('myAngularApp', function($route, $location, $window) {
     var self = this;
     $route.onChange(function() {
         if (!$route.current) {
-            $location.updateHash('/list/name');
+            $location.updateHash('/list/level');
             self.$eval();
         } else {
             $route.current.scope.params = $route.current.params;
