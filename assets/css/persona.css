@@ -119,6 +119,10 @@ th a:link {
   color: white;
 }
 
+th a:hover {
+  color: var(--link-hover-color);
+}
+
 /* Table Cell Styles */
 td, th {
   border: 1px solid #ccc;
@@ -166,7 +170,7 @@ tr:hover td:last-child {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 70%;
+  max-width: fit-content;
   background-color: var(--input-bg-color);
 }
 
