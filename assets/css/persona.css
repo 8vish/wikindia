@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
     
 body {
     font-family: 'Poppins', Arial, sans-serif;
@@ -22,7 +26,6 @@ body {
   letter-spacing: 2px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 
 a {
@@ -423,108 +426,11 @@ div.pagination span:last-child span {
 }
 
 
-    .separator {
-      height: 2px;
-      background-color: #ff5a5f;
-      margin-bottom: 50px;
-      animation: separator-expand 0.5s forwards;
-    }
 
-    @keyframes separator-expand {
-      0% {
-        width: 0;
-      }
-      100% {
-        width: 100%;
-      }
-    }
-
-    .accordion {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .accordion-item {
-      background-color: #ffffff;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .accordion-title {
-      background-color: #f9f9f9;
-      color: #333333;
-      font-size: 18px;
-      font-weight: 600;
-      padding: 15px 20px;
-      margin: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background-color 0.3s;
-    }
-
-    .accordion-title:hover {
-      background-color: #e5e5e5;
-    }
-
-    .accordion-title::after {
-      content: '\002B';
-      font-size: 16px;
-      font-weight: bold;
-      transition: transform 0.3s;
-    }
-
-    .accordion-item.active .accordion-title::after {
-      content: '\2212';
-      transform: rotate(90deg);
-    }
-
-    .accordion-content {
-      padding: 20px;
-      display: none;
-      background-color: #ffffff;
-    }
-
-    .accordion-item.active .accordion-content {
-      display: block;
-    }
-
-    .accordion-content p {
-      margin: 0;
-    }
-
-    .accordion-img {
-      max-width: 100%;
-      height: 100%;
-      border-radius: 5px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    @media screen and (max-width: 600px) {
-      .accordion-title {
-        font-size: 16px;
-        padding: 12px 15px;
+     #ingredients {
+ padding-top: 7px;
       }
 
-      .accordion-content {
-        padding: 15px;
+      #recipes {
+        margin-top: 30px;
       }
-    }
-    
-    /* CSS for paragraphs */
-        .accordion-content p {
-          font-size: 16px;
-          color: #333333;
-          text-align: left;
-          line-height: 1.5;
-          margin-bottom: 20px;
-        }
-  
-      .accordion-content h1, h2, h3, h4, h5, h6 {
-        text-align: center;
-      }
-      

@@ -1,7 +1,7 @@
+<div id="persona">
+    <div id="recipes">
 <p ng:hide="allRecipes">"{{params.persona_name}}" not found!</p>
-
 <ng:show="allrecipes">
-
     {{numRecipes}} Recipes - {{persona.name}} ({{persona.level}} /
     {{persona.arcana}})
 
@@ -9,7 +9,8 @@
         maxed!</span>
     <span style='color: slateblue;' ng:show='persona.item'>Requires an item from
         one of Elizabeth's requests!</span>
-<br>
+</div>
+
     <input placeholder="Filter Persona" type="text" id="filter" name="filter">
     <button ng:click="filter = ''">Clear</button>
 
@@ -27,11 +28,11 @@
                 <td>{{recipe.cost | number}} ¥</td>
                 <td>
                     <div ng:repeat="persona in recipe.sources">
-                        <p>
+                        <div id="ingredients">
                             <a
                                 href='#/persona/{{persona.name}}'>{{persona.name}}</a>
                             ({{persona.level}} / {{persona.arcana}})
-                        </p>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -49,3 +50,4 @@
 </ng:show>
 
 <hr>
+</div>
