@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#B71C1C">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Persona 5 Royal Fusion Calculator">
+    <title>Persona 5 Royal Fusion Calculator</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/persona/P5andP5R.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-table-headers/0.1.19/js/jquery.stickytableheaders.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+    <script src="/assets/data/persona/Data5Royal.js"></script>
+    <script src="/assets/data/persona/PersonaDataRoyal.js"></script>
+    <script src="/assets/data/persona/SkillDataRoyal.js"></script>
+    <script src="/assets/data/persona/ItemDataRoyal.js"></script>
+    <link rel="stylesheet" href="/assets/css/semantic.min.css">   
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Persona 5, Persona 5 Royal, Fusion Calculator, Persona Fusion, Skill Calculator, RPG, Video Game, Strategy, Optimization, Fusion Recipes, Persona Skills">
+    <meta name="author" content="Vishal Suryavanshi">
+    <meta name="description" content="Explore the intricacies of Persona 5 Royal Fusion with our comprehensive Fusion Calculator. Whether you're a seasoned player searching for specific persona recipes or a newcomer navigating the fusion process, this tool simplifies the journey. Learn about rare personas, usage guides, and effective fusion strategies. Configure DLC settings, access detailed persona information, and plan your fusion tactics for a powerful Persona 5 Royal experience.">
+    <meta name="og:image" content="https://personacalculator.com/assets/images/persona/p5r.png">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:title" content="Persona 5 Royal Fusion Calculator">
+    <meta property="og:description" content="Explore the intricacies of Persona 5 Royal Fusion with our comprehensive Fusion Calculator. Whether you're a seasoned player searching for specific persona recipes or a newcomer navigating the fusion process, this tool simplifies the journey. Learn about rare personas, usage guides, and effective fusion strategies. Configure DLC settings, access detailed persona information, and plan your fusion tactics for a powerful Persona 5 Royal experience.">
+    <meta property="og:url" content="https://personacalculator.com/persona/p5r">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Persona 5 Royal Fusion Calculator">
+    <meta name="twitter:description" content="Craft your ultimate Persona team with precision using the Persona 5 Royal Fusion Calculator. Unleash powerful fusions, explore potent skills, and optimize your RPG adventure. Level up your gameplay strategy now!">
+    <meta name="twitter:image" content="https://personacalculator.com/assets/images/persona/p5r.png">
+
+    <script>
+        // dirty quick hack
+        var GLOBAL_IS_ROYAL = true;
+        var rarePersonae = rarePersonaeRoyal;
+        var rareCombos = rareCombosRoyal;
+        var arcana2Combos = arcana2CombosRoyal;
+        var specialCombos = specialCombosRoyal;
+        var dlcPersona = dlcPersonaRoyal;
+        var personaMap = personaMapRoyal;
+        var skillMap = skillMapRoyal;
+        var itemMap = itemMapRoyal;
+        var inheritanceChart = inheritanceChartRoyal;
+    </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7751886309460093"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+  <div class="ui three item inverted menu">
+    <a class="item" href="/">
+      Home
+    </a>
+    <a class="item" href="/persona/p5">
+      Persona 5
+    </a>
+    <a class="item active" href="#/list">
+      Persona 5 Royal
+    </a>
+  </div>
+  <div id="content">
+    <div class="hero">
+        <h1>Persona 5 Royal Fusion Calculator</h1>
+    </div>
+      <!-- Button Group -->
+      <div class="ui buttons tab-container">
+        <a href="#/list/" class="ui button tab-item active-tab" onclick="changeTab(this)">Persona</a>
+        <a href="#/skill/" class="ui button tab-item" onclick="changeTab(this)">Skills</a>
+        <a href="#/setting/" class="ui button tab-item" onclick="changeTab(this)">Settings</a>
+    </div>
+<script>
+    // JavaScript function to change active tab
+    function changeTab(tab) {
+        // Remove 'active-tab' class from all tabs
+        document.querySelectorAll('.tab-item').forEach(function (el) {
+            el.classList.remove('active-tab');
+        });
+
+        // Add 'active-tab' class to the clicked tab
+        tab.classList.add('active-tab');
+    }
+</script>
+<!-- Section Separator -->
+    <!-- Section Separator -->
+    <hr class="hr" color="premiumblack">
+
+      <ng-view ng-app="myModule"></ng-view>
+    </div>
+    <div id="text-container">   
+    <div id="text" class="ui container text">
+        <!-- Persona 5 Royal Fusion Calculator Guide -->
+        <h2 class="ui huge header">How it Works</h2>
+
+
+            <!-- Welcome Section -->
+            <h3>Welcome to the Persona 5 Royal Fusion Calculator!</h3>
+            <p>This tool is your ultimate companion for navigating the intricate world of persona fusion in Persona 5 Royal. Whether you're an experienced player searching for specific persona recipes or a newcomer trying to understand the fusion process, this calculator is here to help.</p>
+          
+            <!-- How It Works Section -->
+            <h3>How It Works</h3>
+            <hr>
+            <p>When you open this calculator, you'll encounter a comprehensive list of personas with their associated stats. Clicking on a specific persona will open a new page with detailed information about that persona, including fusion results in two sections: recipes for this persona and recipes from this persona.</p>
+          
+            <!-- Usage Guide -->
+            <h4>Usage Guide</h4>
+            <p>The Persona 5 Royal Fusion Calculator is designed to simplify the persona fusion process, making it easier for you to create powerful personas for your journey. Here's a step-by-step breakdown of how to use this tool:</p>
+          
+            <h5>1. Persona List</h5>
+            <p>Access the complete list of personas by clicking on the "Persona" tab. Use the search bar for quick access, and sort or filter personas based on level, arcana, and elemental values.</p>
+          
+            <h5>2. Skills List</h5>
+            <p>Explore the "Skills" tab for a comprehensive list of skills in Persona 5 Royal. Filter skills by type, name, cost, and more to identify the perfect skills for your fusion strategy.</p>
+          
+            <h5>3. DLC Settings</h5>
+            <p>Configure your owned DLC personas in the "Settings" tab. Check the checkboxes for your DLC personas, and click "Save" to apply personalized fusion results.</p>
+          
+            <h5>4. Persona Details</h5>
+            <p>Click on a persona's name to access detailed information. Explore stats, elemental affinities, skills, and learn about its location in Mementos for effective fusion planning.</p>
+          
+            <h5>5. Fusion Information</h5>
+            <p>Discover fusion recipes for the selected persona. View both fusion-to and fusion-from recipes to plan your strategies. Utilize the filter and search functions for tailored results.</p>
+          
+            <!-- Tips and Reminders -->
+            <h3>Tips and Reminders</h3>
+            <hr>
+            <ul>
+              <li>Rare Personas: Fusion for rare personas is influenced by your persona's current level. Be mindful of this when attempting fusions for rare personas.</li>
+              <li>DLC Persona Configuration: Ensure accurate fusion results by configuring the DLC personas you own in the "Settings" tab.</li>
+              <li>Skill Card Negotiation and Fusion: Identify skills obtainable through negotiation and fusion by referring to the respective columns in the skills list.</li>
+            </ul>
+            <hr>
+        </div>
+ 
+        <div class="ui container text">
+
+            <h2 id="fusion">How Fusion Works in Persona 5 Royal</h2>
+            <hr>
+            <p>Fusion in Persona 5 Royal follows familiar rules from Persona 3 and 4, but with some additional nuances:</p>
+        
+            <div class="fusion-details">
+              <p>There are rare personas (Treasure Demons) that, when fused with a normal persona X, result in another persona one or two ranks above or below X's current level.</p>
+              <ul>
+                <li>Notably, the outcome depends on the rare persona and X's arcana, meaning it's not fixed but varies based on X's current level.</li>
+                <li>Rare personas include Regent, Queen's Necklace, Stone of Scone, Koh-i-Noor, Orlov, Emperor's Amulet, Hope Diamond, and Crystal Skull.</li>
+              </ul>
+            </div>
+        
+            <hr>
+        
+            <ol>
+              <li>When two rare personas are fused, the normal fusion formula is applied.</li>
+              <li>Rare personas cannot be the result of fusion.</li>
+              <li>If a fusion results in a rare persona, it is skipped.</li>
+              <li>3-way fusion is no longer present.</li>
+              <li>There are DLC personas. If you don't own a DLC persona, it's skipped during fusion.</li>
+              <li>The calculator assumes you own no DLC personas by default (you can adjust this <a href="#/setting">here</a>). Also, for rare fusions, it assumes your persona is at the base level.</li>
+            </ol>
+        
+            <h2>Note on Fusion with Judgement Arcana</h2>
+            <hr>
+            <p>Contrary to the <a href="http://atlus.com/persona5/manual/ps4/?pid=50">official guide</a>, fusing a persona of the Judgement arcana with personas of Justice/Strength/Chariot/Death arcana is not possible in the game.</p>
+            <p>Backup <a href="/assets/images/persona/atlus_fusion_table.jpg">link</a> if the above link is broken.</p>
+        
+          </div>
+    </div>
+          
+<script src="/assets/js/persona/P5andP5Rrecipe.js"></script>
+</body>
+</html>

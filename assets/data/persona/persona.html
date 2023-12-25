@@ -1,0 +1,314 @@
+<p ng:hide="fusionTo">"{{personaName}}" not found!</p>
+<div ng:show="fusionTo" style="margin-top:10px; margin-bottom: 50px;">
+    <h2  style="padding-top: 50px;">{{personaName}} ({{persona.level}} / {{persona.arcana}})</h2>
+
+    <div ng:if='persona.max || persona.rare || persona.note || persona.dlc'>
+        <h3>Note</h3>
+        <span style='color: red;' ng:show='persona.max'>Social link must be maxed!</span>
+        <span style='color: slateblue;' ng:show='persona.rare'>This is a rare persona and cannot be fused!</span>
+        <span style='color: slateblue;' ng:show='persona.note'>{{persona.note}}</span>
+        <span style='color: slateblue;' ng:show='persona.dlc'>This is a DLC persona!</span>
+    </div>
+    <br>
+    <div ng-if="persona.area" class="ui segment blue">
+        <h3>Mementos Location:</h3>
+      <p> Path of {{persona.area}}<br>Floor(s): {{persona.floor}}</p>
+    </div>
+    
+
+    <h3>Itemization</h3>
+    <div ng:if='persona.item' style="margin-top:10px">
+        <table class="ui table unstackable striped">
+            <thead>
+            <tr>
+                <th ng:if='persona.itemr'> </th>
+                <th ng:repeat="s in persona.itemDataHeader">{{s}}</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr ng:if='!persona.skillCard' ng:repeat="item in persona.itemData track by $index">
+                <td ng:if='persona.itemr'><b>Normal:</b></td>
+                <td>{{item.type}}</td>
+                <td>{{item.name}}</td>
+                <td style="min-width: 33% !important;">{{item.description}}</td>
+            </tr>
+            <tr ng:if='persona.skillCard' ng:repeat="item in persona.itemData track by $index">
+                <td ng:if='persona.itemr' ><b>Normal:</b></td>
+                <td>Skill Card - {{item.elem}}</td>
+                <td>
+                    <a href="#/skill#{{item.name}}">{{item.name}}</a>
+                </td>
+                <td style="min-width: 33% !important;">{{item.description}}</td>
+                <td>{{item.cost}}</td>
+            </tr>
+            <tr ng:if='!persona.skillCard' ng:repeat="itemr in persona.itemDataR track by $index">
+                <td><b>Fusion Alarm:</b></td>
+                <td>{{itemr.type}}</td>
+                <td>{{itemr.name}}</td>
+                <td style="min-width: 33% !important;">{{itemr.description}}</td>
+            </tr>
+            <tr ng:if='persona.skillCard' ng:repeat="itemr in persona.itemDataR track by $index">
+                <td><b>Fusion Alarm:</b></td>
+                <td>Skill Card - {{itemr.elem}}</td>
+                <td>
+                    <a href="#/skill#{{itemr.name}}">{{itemr.name}}</a>
+                </td>
+                <td style="min-width: 33% !important;">{{itemr.description}}</td>
+                <td>{{itemr.cost}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h3>Stats</h3>
+    <table id="statsTable" class="ui table unstackable striped">
+        <thead>
+        <tr>
+            <th ng:repeat="s in persona.statsHeader">{{s}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="i in persona.stats track by $index">{{i}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Elementals</h3>
+    <table class="ui table unstackable striped mobile-hidden">
+        <thead>
+        <tr>
+            <th ng:repeat="s in persona.elemsHeader">{{s}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="s in persona.elems track by $index" class="{{s}}">{{s}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--split the table into 2 for mobile-->
+    <table class="ui table unstackable striped desktop-hidden">
+        <thead>
+        <tr>
+            <th ng:repeat="s in persona.elemsHeader1">{{s}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="s in persona.elems1 track by $index" class="{{s}}">{{s}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="ui table unstackable striped desktop-hidden">
+        <thead>
+        <tr>
+            <th ng:repeat="s in persona.elemsHeader2">{{s}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="s in persona.elems2 track by $index" class="{{s}}">{{s}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <div ng-if="persona.inherits">
+    <h3>Inheritance</h3>
+    <h4>Type: {{persona.inherits}}</h4>
+    <table class="ui table unstackable striped mobile-hidden">
+        <thead>
+        <tr>
+            <th ng:repeat="i in persona.inheritanceHeader">{{i}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="i in persona.inheritance track by $index" class="{{i}}">{{i}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--split the table into 2 for mobile-->
+    <table class="ui table unstackable striped desktop-hidden">
+        <thead>
+        <tr>
+            <th ng:repeat="s in persona.inheritanceHeader1">{{s}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="s in persona.inheritance1 track by $index" class="{{s}}">{{s}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="ui table unstackable striped desktop-hidden">
+        <thead>
+        <tr>
+            <th ng:repeat="s in persona.inheritanceHeader2">{{s}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td ng:repeat="s in persona.inheritance2 track by $index" class="{{s}}">{{s}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <h3>Skills</h3>
+    <table id="skillTable" class="ui table unstackable striped">
+        <thead>
+        <tr>
+            <th>Level</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th colspan="2">Effect</th>
+            <th>Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng:repeat="skill in persona.skillList track by $index">
+            <td>{{skill.level}}</td>
+            <td>{{skill.elem}}</td>
+            <td>
+                <a href="#/skill#{{skill.name}}">{{skill.name}}</a>
+                <span class="dlc-label" ng-if="skill.unique">Unique</span>
+            </td>
+            <td colspan="2">{{skill.description}}</td>
+            <td>{{skill.cost}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Fusion to this persona ({{fusionTo.numRecipes}} Recipes)</h3>
+
+    <div ng:show="!persona.special && !persona.rare">
+        <p><b>Note</b>: Don't get the same results? Remember to configure which DLC persona you own
+            in <a href="#/setting/">Setting</a>.</p>
+        <p>Also, remember that rare persona fusion depends on your persona's current level.
+            <a target="_blank" href="https://github.com/chinhodado/persona5_calculator#how-fusion-in-persona-5-works">Read more.</a>
+        </p>
+    </div>
+
+    <div class="caption">
+        <div class="pagination" ng:show="fusionTo.numRecipes > perPage">
+            <span ng:click="fusionTo.pageNum = 0">&#x25c4;<span style="position: relative; left: -0.4em;">&#x25c4;</span></span>
+            <span ng:click="fusionTo.pageNum = fusionTo.pageNum - 1">&#x25c4;</span>
+            Page {{fusionTo.pageNum + 1}} / {{Math.ceil(fusionTo.numRecipes / perPage)}}
+            <span ng:click="fusionTo.pageNum = fusionTo.pageNum + 1">&#x25ba;</span>
+            <span ng:click="fusionTo.pageNum = fusionTo.lastPage"><span style="position: relative; right: -0.4em;">&#x25ba;</span>&#x25ba;</span>
+        </div>
+    </div>
+
+    <div class="ui action input">
+        <input type="text" placeholder="Filter..." ng-model="fusionTo.filterStr" autocorrect="off" autocomplete="off" spellcheck="false">
+        <button ng-click="fusionTo.filterStr = ''" class="ui button blue">Clear</button>
+    </div>
+    
+
+    <table class="ui table unstackable striped recipesTable mobile-hidden">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Cost</th>
+            <th colspan="4">Ingredients</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng:repeat="recipe in fusionTo.recipes track by $index">
+            <td>{{recipe.num + 1}}</td>
+            <td>¥{{recipe.cost | number}}</td>
+            <td colspan="2" ng:repeat="persona in recipe.sources track by $index">
+                <a href='#/persona/{{persona.name}}'>{{persona.name}}</a>
+                ({{persona.level}} / {{persona.arcana}})
+                <span title="This is a rare persona. Depending on the other ingredient's current level, you may not get the
+                same result when fusing with this persona." class="warning-sign" ng:if="persona.rare && !recipe.isAllRare">⚠</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    
+   <!-- for Mobile -->
+      <table class="ui table unstackable striped recipesTable desktop-hidden">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Cost</th>
+            <th colspan="3">Ingredients</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="recipe in fusionTo.recipes track by $index">
+            <td>{{recipe.num + 1}}</td>
+            <td>¥{{recipe.cost | number}}</td>
+            <td style="margin-bottom: 10px !important;" colspan="3">
+              <div ng-repeat="persona in recipe.sources" class="ingredient-divider">
+                <a href='#/persona/{{persona.name}}'>{{persona.name}}</a>
+                ({{persona.level}} / {{persona.arcana}})
+                <span title="This is a rare persona. Depending on the other ingredient's current level, you may not get the
+                      same result when fusing with this persona." class="warning-sign" ng-if="persona.rare && !recipe.isAllRare">⚠</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+    <h3>Fusion from this persona ({{fusionFrom.numRecipes}} Recipes)</h3>
+
+    <div>
+        <p><b>Note</b>: Don't get the same results? Remember to configure which DLC persona you own
+            in <a href="#/setting/">Setting</a>.</p>
+        <p>Also, remember that rare persona fusion depends on your persona's current level.
+            <a target="_blank" href="https://github.com/chinhodado/persona5_calculator#how-fusion-in-persona-5-works">Read more.</a>
+        </p>
+    </div>
+
+    <div class="caption">
+        <div class="pagination" ng:show="fusionFrom.numRecipes > perPage">
+            <span ng:click="fusionFrom.pageNum = 0">&#x25c4;<span style="position: relative; left: -0.4em;">&#x25c4;</span></span>
+            <span ng:click="fusionFrom.pageNum = fusionFrom.pageNum - 1">&#x25c4;</span>
+            Page {{fusionFrom.pageNum + 1}} / {{Math.ceil(fusionFrom.numRecipes / perPage)}}
+            <span ng:click="fusionFrom.pageNum = fusionFrom.pageNum + 1">&#x25ba;</span>
+            <span ng:click="fusionFrom.pageNum = fusionFrom.lastPage"><span style="position: relative; right: -0.4em;">&#x25ba;</span>&#x25ba;</span>
+        </div>
+    </div>
+
+    <div class="ui action input">
+        <input type="text" placeholder="Filter..." ng-model="fusionFrom.filterStr" autocorrect="off" autocomplete="off" spellcheck="false">
+        <button class="ui button blue" ng-click="fusionFrom.filterStr = ''">Clear</button>
+    </div>
+    
+
+    <table class="ui table unstackable striped recipesTable">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Cost</th>
+            <th colspan="2">Fuse with</th>
+            <th colspan="2">Result</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng:repeat="recipe in fusionFrom.recipes track by $index">
+            <td>{{recipe.num + 1}}</td>
+            <td>¥{{recipe.cost | number}}</td>
+            <td colspan="2">
+                <a href='#/persona/{{recipe.sources[1].name}}'>{{recipe.sources[1].name}}</a>
+                ({{recipe.sources[1].level}} / {{recipe.sources[1].arcana}})
+                <span title="This is a rare persona. Depending on the other ingredient's current level, you may not get the
+                same result when fusing with this persona." class="warning-sign" ng:if="recipe.sources[1].rare && !recipe.isAllRare">⚠</span>
+            </td>
+            <td colspan="2">
+                <a href='#/persona/{{recipe.result.name}}'>{{recipe.result.name}}</a>
+                ({{recipe.result.level}} / {{recipe.result.arcana}})
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

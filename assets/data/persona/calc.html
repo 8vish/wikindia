@@ -1,0 +1,51 @@
+<p ng:hide="allRecipes">"{{params.persona_name}}" not found!</p>
+
+<ng:show="allrecipes">
+
+    {{numRecipes}} Recipes - {{persona.name}} ({{persona.level}} /
+    {{persona.arcana}})
+
+    <span style='color: red;' ng:show='persona.max'>Social link must be
+        maxed!</span>
+    <span style='color: slateblue;' ng:show='persona.item'>Requires an item from
+        one of Elizabeth's requests!</span>
+<br>
+    <input placeholder="Filter Persona" type="text" id="filter" name="filter">
+    <button ng:click="filter = ''">Clear</button>
+
+    <table class="custom-table centered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Cost</th>
+                <th>Ingredients</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng:repeat="recipe in recipes">
+                <td>{{recipe.num + 1}}</td>
+                <td>{{recipe.cost | number}} ¥</td>
+                <td>
+                    <div ng:repeat="persona in recipe.sources">
+                        <p>
+                            <a
+                                href='#/persona/{{persona.name}}'>{{persona.name}}</a>
+                            ({{persona.level}} / {{persona.arcana}})
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination" ng:show="numRecipes > perPage">
+        <span ng:click="pageNum = 0">⇤⇤</span>
+        <span ng:click="pageNum = pageNum - 1">⇤</span> Page {{pageNum + 1}} /
+        {{ceil(numRecipes / perPage)}}
+        <span ng:click="pageNum = pageNum + 1">⇥</span>
+        <span ng:click="pageNum = lastPage">⇥⇥</span>
+    </div>
+
+</ng:show>
+
+<hr>

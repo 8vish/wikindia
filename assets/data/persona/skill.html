@@ -1,0 +1,34 @@
+<div class="ui action input" style="margin-top: 30px; margin-bottom: 20px;">
+    <input type="text" placeholder="Filter..." ng-model="filterStr" class="mini" style="margin-right: 5px;">
+    <button class="ui teal button mini" ng-click="filterStr = ''">Clear</button>
+  </div>
+  
+  
+  
+  
+<table id="skillList" cellspacing="0" class="ui table striped sortable unstackable" sticky-table>
+    <thead>
+    <tr>
+        <th class="mobile-hidden"><a ng-click="sortBy = 'elemDisplay'; sortReverse = !sortReverse">Type</a></th>
+        <th><a ng-click="sortBy = 'name'; sortReverse = !sortReverse">Name</a></th>
+        <th class="mobile-hidden"><a ng-click="sortBy = 'costDisplay'; sortReverse = !sortReverse">Cost</a></th>
+        <th class="mobile-hidden"><a ng-click="sortBy = 'effect'; sortReverse = !sortReverse">Effect</a></th>
+        <th><a ng-click="sortBy = 'personaDisplay'; sortReverse = !sortReverse">Persona</a></th>
+        <th class="mobile-hidden"><a ng-click="sortBy = 'talk'; sortReverse = !sortReverse">Skill Card Negotiation</a></th>
+        <th class="mobile-hidden"><a ng-click="sortBy = 'fuse'; sortReverse = !sortReverse">Skill Card Fusion</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng:repeat="skill in skillList | orderBy:sortBy:sortReverse | filter:filterStr">
+        <td class="mobile-hidden">{{skill.elemDisplay}}</td>
+        <td class="left-border" id="{{skill.name}}">{{skill.name}}
+            <span class="dlc-label" ng-if="skill.unique">Unique</span>
+        </td>
+        <td class="mobile-hidden left-border" >{{skill.costDisplay}}</td>
+        <td class="mobile-hidden left-border" >{{skill.effect}}</td>
+        <td class="left-border"  ng-bind-html="skill.personaDisplay"></td>
+        <td class="mobile-hidden left-border" ng-bind-html="skill.talkDisplay"></td>
+        <td class="mobile-hidden left-border" ng-bind-html="skill.fuseDisplay"></td>
+    </tr>
+    </tbody>
+</table>

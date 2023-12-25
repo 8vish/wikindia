@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+    
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0;
+    margin-right: 0;
+  
+}
+
+   h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 10px 20px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: tableFadeIn 0.5s ease-in-out;
+    max-width: 800px;
+}
+
+@keyframes tableFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+th {
+    cursor: pointer;
+    padding: 15px;
+    background-color: #4c6ef5;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+    transition: background-color 0.3s ease;
+}
+
+th:hover {
+    background-color: #4052b5;
+}
+
+thead {
+  position: relative;
+}
+
+th a {
+  color: blue; /* Default link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Transition effect for color change */
+}
+
+a:hover,
+th a:hover {
+  color: red; /* Red link color on hover */
+}
+ 
+ th a {
+   color: white;
+ }
+
+th a:link {
+  color: white; /* White link color */
+}
+
+/* Add a fade-in animation on hover */
+a:hover,
+th a:hover {
+  animation: fadeIn 0.3s ease; /* Apply fadeIn animation on hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+    opacity: 1; /* Fade to opacity 1 */
+  }
+}
+
+
+td, th {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #d1e4f7;
+}
+
+tr:hover td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+tr:hover td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.pagination span {
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #4c6ef5;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination span:hover {
+    background-color: #4052b5;
+}
+
+#content {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.infoTable, .recipesTable, #skillList {
+    text-align: center;
+}
+
+.recipesTable {
+    text-align: left;
+}
+
+.recipesTable td, .recipesTable th {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.caption {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#skillList {
+    text-align: left;
+}
+
+#skillList th, #skillList td {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media screen and (min-width: 1080px) {
+    #skillList {
+        width: 80%;
+    }
+}
+
+.ui.sortable.table thead th:hover {
+    background: auto !important;
+}
+
+.wk, .rs, .nu, .rp, .ab,
+.Weak, .Resist, .Null, .Repel, .Absorb {
+    font-weight: bold;
+}
+
+.wk, .Weak { color: #db2828 !important; }
+.rs, .Resist { color: #2185d0 !important; }
+.nu, .Null { color: #b0b0b0 !important; }
+.rp, .Repel { color: #fbbd08 !important; }
+.ab, .Absorb { color: #21ba45 !important; }
+
+.✓ {
+  color: #31ce3e !important;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.✘ {
+  color: #db2828 !important;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.left-border {
+    border-left: 1px solid rgba(34,36,38,.1) !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .desktop-hidden {
+        display: none;
+    }
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-container input [type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  background-color: #4c6ef5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #4052b5;
+}
+/* Select Styles */
+select {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Textarea Styles */
+textarea {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Input Styles */
+input {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+
+button {
+  padding: 10px 20px;
+  background-color: #4c6ef5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+ /* Add a transition for smooth color change */
+#main a,
+#main th a {
+  color: blue; /* Default link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Transition effect for color change */
+}
+
+#main a:hover,
+#main th a:hover {
+  color: red; /* Red link color on hover */
+}
+ 
+ #main th a {
+   color: white;
+ }
+
+#main th a:link {
+  color: white; /* White link color */
+}
+
+/* Add a fade-in animation on hover */
+#main a:hover,
+#main th a:hover {
+  animation: fadeIn 0.3s ease; /* Apply fadeIn animation on hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+    opacity: 1; /* Fade to opacity 1 */
+  }
+}
+
+#accordion {
+  text-align: left;
+  box-sizing: border-box;
+}
+
+#main h1,
+#main h2,
+#main h3,
+#main h4,
+#main h5,
+#main h6 {
+  color: #333;
+}
+
+#main h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#main h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#main h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#main h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#main h5 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#main h6 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#main p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+}
+
+
+ 
+div.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+div.pagination span {
+  padding: 5px;
+  margin: 0 5px;
+  background-color: #4c6ef5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div.pagination span:hover {
+  background-color: rebeccapurple;
+}
+
+div.pagination span:first-child span,
+div.pagination span:last-child span {
+  position: relative;
+  left: -0.4em;
+}
+
+div.pagination span:last-child span {
+  right: -0.4em;
+}
+
+
+    .separator {
+      height: 2px;
+      background-color: #ff5a5f;
+      margin-bottom: 50px;
+      animation: separator-expand 0.5s forwards;
+    }
+
+    @keyframes separator-expand {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion-title {
+      background-color: #f9f9f9;
+      color: #333333;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 15px 20px;
+      margin: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+    }
+
+    .accordion-title:hover {
+      background-color: #e5e5e5;
+    }
+
+    .accordion-title::after {
+      content: '\002B';
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-title::after {
+      content: '\2212';
+      transform: rotate(90deg);
+    }
+
+    .accordion-content {
+      padding: 20px;
+      display: none;
+      background-color: #ffffff;
+    }
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+
+    .accordion-content p {
+      margin: 0;
+    }
+
+    .accordion-img {
+      max-width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    @media screen and (max-width: 600px) {
+      .accordion-title {
+        font-size: 16px;
+        padding: 12px 15px;
+      }
+
+      .accordion-content {
+        padding: 15px;
+      }
+    }
+    
+    /* CSS for paragraphs */
+        .accordion-content p {
+          font-size: 16px;
+          color: #333333;
+          text-align: left;
+          line-height: 1.5;
+          margin-bottom: 20px;
+        }
+  
+      .accordion-content h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+      }
+      
