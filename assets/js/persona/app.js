@@ -272,3 +272,38 @@ function ListCtrl() {
     this.sortBy = this.params.sort_by || 'name';
 }
 ListCtrl.$inject = [];
+
+////\\//\\//\\//\\//\\--NAVBAR--//\\//\\//\\//\\//\\
+// Get the elements
+const navbar = document.querySelector('.navbar');
+const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+const closeBtn = document.querySelector('.close-btn');
+const navList = document.querySelector('.nav-list');
+
+// Event listener for the mobile navigation toggle button
+mobileNavToggle.addEventListener('click', () => {
+    // Toggle the 'active' class on the navbar
+    navbar.classList.toggle('active');
+});
+
+// Event listener for the close button
+closeBtn.addEventListener('click', () => {
+    navbar.classList.remove('active');
+});
+
+// Event listener to close the navigation links when clicking outside the navbar
+document.addEventListener('click', (event) => {
+    if (!navbar.contains(event.target) && !mobileNavToggle.contains(event.target) && !closeBtn.contains(event.target)) {
+        navbar.classList.remove('active');
+    }
+});
+
+// Prevent clicks inside the navbar from closing it
+navbar.addEventListener('click', (event) => {
+    event.stopPropagation();
+});
+
+// Toggle the 'active' class when clicking on a link to close the navigation on mobile
+navList.addEventListener('click', () => {
+    navbar.classList.remove('active');
+});
