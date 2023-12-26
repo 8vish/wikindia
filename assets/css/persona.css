@@ -159,6 +159,7 @@ tr:hover td:last-child {
 /* Persona Section Styles */
 #persona {
 	 margin-top: 30px;
+	 margin-bottom: 30px;
 }
 
 /* Ingredients Section Styles */
@@ -233,16 +234,10 @@ button:hover {
 	 margin: 5px 0;
 }
 
-
-
 .container {
   max-width: 1000px;
   width: 100%;
   margin: auto;
-}
-
-header {
-	display: fixed;
 }
 
 .navbar {
