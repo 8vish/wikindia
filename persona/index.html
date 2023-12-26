@@ -1,132 +1,89 @@
+
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/persona.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Persona Fusion Calculators</title>
+    <meta name="description" content="Explore the ultimate Persona Fusion Calculators For Persona 5, Persona 4, Persona 4 Golden, Persona 3 FES and Persona 3 Portable Games.">
+</head>
+<body class="bg-[#fdfcff] dark:bg-[#0a192f] dark:text-[#fff] overflow-x-hidden font-[Poppins] duration-300">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Persona Calculator - Game Tools</title>
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <style>
-        body {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-
-        .game-section {
-            margin-top: 20px;
-        }
-
-        .game-title {
-            background-color: #2980b9;
-            color: #ecf0f1;
-            padding: 10px;
-            font-size: 1.5rem;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .list-group-item {
-            background-color: #34495e;
-            border-color: #2c3e50;
-            color: #ecf0f1;
-        }
-
-        .list-group-item:hover {
-            background-color: #2980b9;
-            color: #ecf0f1;
-        }
-
-        .container {
-            max-width: 800px;
-        }
-
-        h1,
-        h2 {
-            color: #ecf0f1;
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #34495e;
-            color: #ecf0f1;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 60px;
-            width: 100%;
-            bottom: 0;
-        }
-
-        /* Navigation styling */
-        nav {
-            background-color: #3498db;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-
-        nav a {
-            color: #ecf0f1;
-            margin-right: 15px;
-        }
-
-        nav a:hover {
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-        footer {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .footer-links {
-            list-style: none;
-   
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-    </style>
-        <script async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7751886309460093"
-            crossorigin="anonymous"></script>
-    </head>
-
-    <body>
-
-        <div class="container mt-4">
-            <div id="persona" class="game-section">
-                <h2 class="game-title">Persona Series</h2>
-                <div class="list-group">
-                    <a href="/persona/p3fes"
-                        class="list-group-item list-group-item-action">Persona 3
-                        FES Fusion Calculator</a>
-                    <a href="/persona/p3p"
-                        class="list-group-item list-group-item-action">Persona 3
-                        Portable Fusion Calculator</a>
-                    <a href="/persona/p4"
-                        class="list-group-item list-group-item-action">Persona 4
-                        Fusion Calculator</a>
-                    <a href="/persona/p4g"
-                        class="list-group-item list-group-item-action">Persona 4
-                        Golden Fusion Calculator</a>
-                    <a href="/persona/p5"
-                        class="list-group-item list-group-item-action">Persona 5
-                        Fusion Calculator</a>
-                    <a href="/persona/p5r"
-                        class="list-group-item list-group-item-action">Persona 5
-                        Royal Fusion Calculator</a>
-                </div>
-            </div>
+    <header class="header fixed top-0 z-50 bg-[#ffffff] dark:bg-[#172a46] w-full h-[60px] shadow-[rgba(0,_0,_0,_.05)_0_5px_30px_0]">
+        <div class="text-lg">
+            <span class="float-left m-4 text-[#5f3afc] font-semibold md:mx-6 lg:mx-8 xl:mx-10 2xl:mx-12"><a href="https://wikindia.net/">WIKINDIA</a></a></span>
+            <span class="float-right m-4 md:mx-6 lg:mx-8 xl:mx-10 2xl:mx-12"><i class="toggle fa-solid fa-circle-half-stroke cursor-pointer text-slate-400"></i></span>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </body>
+    </header>
+    <section class="m-5 mt-20 md:mx-8 lg:mx-10 xl:mx-14 2xl:mx-18">
+        <!-- <img class="absolute w-12 rounded-full top-[320px] left-[80px] shadow-[rgb(0_0_0_/10%)_10px_10px_40px_0px]" src="img/element1.png" alt="">
+        <img class="absolute w-12 rounded-full top-[320px] left-[270px] shadow-[rgb(0_0_0_/10%)_10px_10px_40px_0px]" src="img/element2.png" alt="">
+        <img class="absolute w-12 rounded-full top-[380px] left-[320px] shadow-[rgb(0_0_0_/10%)_10px_10px_40px_0px]" src="img/element3.png" alt="">
+        <img class="absolute w-12 rounded-full top-[380px] left-[20px] shadow-[rgb(0_0_0_/10%)_10px_10px_40px_0px]" src="img/element4.png" alt="">
+        <img class="absolute w-12 -z-50 rounded-full top-[320px] left-[50px] shadow-[rgb(0_0_0_/10%)_10px_10px_40px_0px]" src="img/element5.png" alt=""> -->
+        <div class="block md:grid md:grid-cols-2">
+            <p class="p-2 text-[35px] lg:text-[40px] xl:text-[50px] 2xl:text-[50px] font-extrabold dark:text-[#fff] text-slate-800 lg:mx-10 xl:mx-14 2xl:mx-20 animate__animated animate__fadeInLeft">Welcome to the <span class="underline decoration-[#aa97ff] decoration-4 text-[#5f3afc]">Persona</span> Fusion Calculators by <span class="underline decoration-[#aa97ff] decoration-4 text-[#5f3afc]">WIKINDIA</span>.</p>
+            <img class="lg:object-contain lg:h-[450px] lg:w-[450px] lg:mx-10 xl:mx-14 2xl:mx-32 animate__animated animate__fadeInRight" src="https://live-tools.netlify.app/img/hero-elements.png" alt="hero-img">
+        </div>
+    </section>
+    
+    <section class="w-full h-[500px] -mt-6">
+        <div class="">
+            <p class="text-center text-[30px] lg:text-[35px] xl:text-[45px] 2xl:text-[45px] font-extrabold text-slate-800 dark:text-[#fff]">Tools List</p>
+        </div>
+        <div class="grid grid-cols-1 place-items-center mt-8 md:grid-cols-2 md:p-16 lg:grid-cols-3 lg:gap-x-20 xl:gap-x-0 2xl:grid-cols-4">
+            <!-- <div class="bg-[#ffffff] dark:bg-[#172a46] w-[300px] h-[280px] mb-[30px] rounded-[20px] hover:outline hover:outline-[#5f3afc] duration-100 shadow-[rgb(0_0_0_/2%)_10px_10px_40px_0px] animate__animated animate__fadeInUp wow">
+                <img class="m-auto mt-10 w-[150px] h-[150px]" src="img/persona 5 royal.png" alt="Persona 5 Royal Fusion Calculator">
+                <p class="text-center text-lg font-semibold text-[#5f3afc]"><a href="https://wikindia.net/persona/5-royal-fusion-calculator/">Persona 5 Royal Fusion Calculator</a></p>
 
+            </div>
+            <div class="bg-[#ffffff] dark:bg-[#172a46] w-[300px] h-[280px] mb-[30px] rounded-[20px] hover:outline hover:outline-[#5f3afc] duration-100 shadow-[rgb(0_0_0_/2%)_10px_10px_40px_0px] animate__animated animate__fadeInUp wow">
+                <img class="m-auto mt-10 w-[150px] h-[150px]" src="img/persona 5.png" alt="Persona 5 Fusion Calculator">
+                           <p class="text-center text-lg font-semibold text-[#5f3afc]"><a href="https://wikindia.net/persona/5-fusion-calculator/">Persona 5 Fusion Calculator</a></p>
+
+
+            </div> -->
+            <div class="bg-[#ffffff] dark:bg-[#172a46] w-[300px] h-[280px] mb-[30px] rounded-[20px] hover:outline hover:outline-[#5f3afc] duration-100 shadow-[rgb(0_0_0_/2%)_10px_10px_40px_0px] animate__animated animate__fadeInUp wow">
+                <img class="m-auto mt-10 w-[150px] h-[150px]" src="/assets/images/Persona_4_Golden_Logo.png" alt="Persona 4 Golden Fusion Calculator">
+                <p class="text-center text-lg font-semibold text-[#5f3afc]"><a href="/persona/p4g">Persona 4 Golden Fusion Calculator</a></p>
+
+            </div>
+            <div class="bg-[#ffffff] dark:bg-[#172a46] w-[300px] h-[280px] mb-[30px] rounded-[20px] hover:outline hover:outline-[#5f3afc] duration-100 shadow-[rgb(0_0_0_/2%)_10px_10px_40px_0px] animate__animated animate__fadeInUp wow">
+                <img class="m-auto mt-10 w-[150px] h-[150px]" src="/assets/images/Persona_4_Logo.png" alt="Persona 4 Fusion Calculator">
+                <p class="text-center text-lg font-semibold text-[#5f3afc]"><a href="/persona/p4">Persona 4 Fusion Calculator</a></p>
+
+            </div>
+            <div class="bg-[#ffffff] dark:bg-[#172a46] w-[300px] h-[280px] mb-[30px] rounded-[20px] hover:outline hover:outline-[#5f3afc] duration-100 shadow-[rgb(0_0_0_/2%)_10px_10px_40px_0px] animate__animated animate__fadeInUp wow">
+                <img class="m-auto mt-10 w-[150px] h-[150px]" src="/assets/images/Persona_3_Portable_Logo.png" alt="Persona 3 Portable Fusion Calculator">
+                <p class="text-center text-lg font-semibold text-[#5f3afc]"><a href="/persona/p3p">Persona 3 Portable Fusion Calculator</a></p>
+                
+            </div>
+            <div class="bg-[#ffffff] dark:bg-[#172a46] w-[300px] h-[280px] mb-[30px] rounded-[20px] hover:outline hover:outline-[#5f3afc] duration-100 shadow-[rgb(0_0_0_/2%)_10px_10px_40px_0px] animate__animated animate__fadeInUp wow">
+                <img class="m-auto mt-10 w-[150px] h-[150px]" src="/assets/images/Persona_3_FES_Logo.png" alt="Persona 3 FES Fusion Calculator">
+                <p class="text-center text-lg font-semibold text-[#5f3afc]"><a href="/persona/p3fes">Persona 3 FES Fusion Calculator</a></p>
+
+            </div>
+
+
+    <!-- <script>
+        
+
+        // function Validate(){
+        //     Name = document.querySelector(".name");
+        //     Email = document.querySelector(".email");
+        //     Message = document.querySelector(".message");
+        //     sendButton = document.querySelector(".send");
+
+        //     if (Name.value == ""){
+        //         Name.classList.add('border-red')
+        //     }
+        // } 
+
+    </script>-->
+</body>
 </html>
