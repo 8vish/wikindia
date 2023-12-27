@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empirical Rule Calculator</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Calculate the Empirical Rule (68-95-99.7 rule) for a normal distribution with this online calculator. Understand data distribution and probability easily.">
+    <meta name="keywords" content="Empirical Rule, 68-95-99.7 rule, normal distribution, statistics, probability, data analysis, standard deviation, mean, statistical calculator">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wikindia.net/statistics/empirical-rule">
+    <meta property="og:title" content="Empirical Rule Calculator">
+    <meta property="og:description" content="Calculate the Empirical Rule (68-95-99.7 rule) for a normal distribution with this online calculator. Understand data distribution and probability easily.">
+    <meta property="og:image" content="https://wikindia.net/assets/images/Empirical_Rule_Calculator.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="https://wikindia.net/assets/images/Empirical_Rule_Calculator.png">
+    <meta property="twitter:url" content="https://wikindia.net/statistics/empirical-rule">
+    <meta property="twitter:title" content="Empirical Rule Calculator">
+    <meta property="twitter:description" content="Calculate the Empirical Rule (68-95-99.7 rule) for a normal distribution with this online calculator. Understand data distribution and probability easily.">
+    <meta property="twitter:image" content="https://wikindia.net/assets/images/Empirical_Rule_Calculator.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Link to Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+    <!-- Highcharts Scripts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto mt-8">
+        <div class="bg-white p-8 rounded-md shadow-md">
+            <h1 class="text-3xl font-bold mb-6 text-center">Empirical Rule Calculator</h1>
+
+            <form id="empiricalRuleForm" class="mb-8">
+                <div class="flex flex-wrap -mx-4 mb-4">
+                    <div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
+                        <label for="mean" class="block text-sm font-medium text-gray-700">Mean:</label>
+                        <input type="number" id="mean" step="any" class="mt-1 p-3 w-full border rounded-md">
+                    </div>
+                    <div class="w-full md:w-1/2 px-4">
+                        <label for="stdDev" class="block text-sm font-medium text-gray-700">Standard Deviation:</label>
+                        <input type="number" id="stdDev" step="any" class="mt-1 p-3 w-full border rounded-md">
+                    </div>
+                </div>
+               <div class="text-center">
+                <button type="button" onclick="calculateEmpiricalRule()"
+                    class="relative bg-gradient-to-r from-blue-500 to-blue-600 rounded lg text-white px-6 py-3 rounded-md hover:shadow-md transition">
+                    <span id="buttonContent">Calculate</span>
+                    <span id="loadingSpinner"
+                        class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <svg class="animate-spin h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 12a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            </form>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-semibold mb-3">Results:</h2>
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/3 px-4 mb-4">
+                        <div class="bg-gray-100 p-6 rounded-md">
+                            <h5 class="font-semibold">68% Interval</h5>
+                            <input type="text" id="result68" class="mt-2 p-3 w-full border rounded-md text-center"
+                                readonly>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-4">
+                        <div class="bg-gray-100 p-6 rounded-md">
+                            <h5 class="font-semibold">95% Interval</h5>
+                            <input type="text" id="result95" class="mt-2 p-3 w-full border rounded-md text-center"
+                                readonly>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-4">
+                        <div class="bg-gray-100 p-6 rounded-md">
+                            <h5 class="font-semibold">99.7% Interval</h5>
+                            <input type="text" id="result997"
+                                class="mt-2 p-3 w-full border rounded-md text-center" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chartContainer"></div>
+        </div>
+    </div>
+
+    <div class="container mx-auto mt-8">
+        <div class="bg-white p-8 rounded-md shadow-md">
+            <p class="text-lg">
+                The Empirical Rule, also known as the three-sigma rule or 68-95-99.7 rule, is a statistical principle
+                that provides insights into the distribution of data in a normal distribution. It states that:
+            </p>
+            <ul class="list-disc list-inside mt-4">
+                <li>68% of data falls within one standard deviation from the mean.</li>
+                <li>95% of data falls within two standard deviations from the mean.</li>
+                <li>99.7% of data falls within three standard deviations from the mean.</li>
+            </ul>
+            <p class="text-lg mt-6">
+                Our Empirical Rule Calculator simplifies the application of this rule. Input the mean and standard
+                deviation of your dataset, click "Calculate," and interpret the provided intervals, offering both
+                numerical and visual representations.
+            </p>
+            <p class="text-lg mt-6">
+                The significance of the Empirical Rule in statistical analysis lies in its use for probability
+                assessment, data validation, and forecasting. It quickly provides an overview of data distribution,
+                aiding decision-making and predictions.
+            </p>
+            <p class="text-center mt-8">
+                <em>Explore the power of statistics with the Empirical Rule Calculator!</em>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function calculateEmpiricalRule() {
+            // Get input values
+            var mean = parseFloat(document.getElementById("mean").value);
+            var stdDev = parseFloat(document.getElementById("stdDev").value);
+
+            // Validate input
+            if (isNaN(mean) || isNaN(stdDev)) {
+                alert("Please enter valid numeric values for Mean and Standard Deviation.");
+                return;
+            }
+
+            // Show loading spinner and disable button
+            document.getElementById("buttonContent").style.display = "none";
+            document.getElementById("loadingSpinner").style.display = "inline-block";
+            document.getElementById("empiricalRuleForm").querySelectorAll('input, button').forEach((item) => {
+                item.disabled = true;
+            });
+
+            // Calculate intervals
+            var interval68 = [mean - stdDev, mean + stdDev];
+            var interval95 = [mean - 2 * stdDev, mean + 2 * stdDev];
+            var interval997 = [mean - 3 * stdDev, mean + 3 * stdDev];
+
+            // Display results
+            document.getElementById("result68").value = formatInterval(interval68);
+            document.getElementById("result95").value = formatInterval(interval95);
+            document.getElementById("result997").value = formatInterval(interval997);
+
+            // Display chart
+            displayChart(mean, stdDev);
+
+            // Reset button text after a delay
+            setTimeout(function () {
+                document.getElementById("buttonContent").style.display = "inline-block";
+                document.getElementById("loadingSpinner").style.display = "none";
+                document.getElementById("empiricalRuleForm").querySelectorAll('input, button').forEach((item) => {
+                    item.disabled = false;
+                });
+            }, 1000);
+        }
+
+        function displayChart(mean, stdDev) {
+            Highcharts.chart('chartContainer', {
+                chart: {
+                    type: 'areaspline',
+                    backgroundColor: 'transparent',
+                },
+                title: {
+                    text: 'Normal Distribution',
+                    style: {
+                        color: '#333',
+                        fontSize: '1.5em'
+                    }
+                },
+                xAxis: {
+                    title: {
+                        text: 'Value',
+                        style: {
+                            color: '#333'
+                        }
+                    },
+                    labels: {
+                        style: {
+                            color: '#333'
+                        }
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Probability Density',
+                        style: {
+                            color: '#333'
+                        }
+                    },
+                    labels: {
+                        style: {
+                            color: '#333'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Normal Distribution',
+                    data: generateNormalDistributionData(mean, stdDev),
+                    marker: {
+                        enabled: false
+                    },
+                    color: 'rgba(66, 153, 225, 0.5)',
+                    fillOpacity: 0.1
+                }],
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    areaspline: {
+                        fillOpacity: 0.2,
+                        lineWidth: 2
+                    }
+                },
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            plotOptions: {
+                                areaspline: {
+                                    fillOpacity: 0.1,
+                                    lineWidth: 1
+                                }
+                            },
+                            yAxis: {
+                                title: {
+                                    text: null
+                                }
+                            },
+                            legend: {
+                                enabled: false
+                            }
+                        }
+                    }]
+                }
+            });
+        }
+
+        function generateNormalDistributionData(mean, stdDev) {
+            var data = [];
+            for (var i = mean - 4 * stdDev; i <= mean + 4 * stdDev; i += 0.01) {
+                var probability = calculateNormalDistribution(mean, stdDev, i);
+                data.push([i, probability]);
+            }
+            return data;
+        }
+
+        function calculateNormalDistribution(mean, stdDev, x) {
+            var exponent = -0.5 * Math.pow((x - mean) / stdDev, 2);
+            var coefficient = 1 / (stdDev * Math.sqrt(2 * Math.PI));
+            return coefficient * Math.exp(exponent);
+        }
+
+        function formatInterval(interval) {
+            return `[${Math.round(interval[0])}, ${Math.round(interval[1])}]`;
+        }
+    </script>
+
+</body>
+
+</html>
