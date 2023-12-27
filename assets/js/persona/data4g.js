@@ -1,3 +1,20 @@
+/*!
+ * Copyright (c) 2023 WIKINDIA.net
+ *
+ * data4g.js
+ * Encapsulates a treasure trove of data exclusively crafted for Persona 4 Golden, including persona names, levels, arcana,
+ * and a rich spectrum of other attributes essential for precise calculations and immersive gameplay experiences within the game.
+ *
+ * **ALL RIGHTS RESERVED. UNAUTHORIZED USE AND/OR REPRODUCTION IS STRICTLY PROHIBITED.**
+ *
+ * USE WITHOUT EXPRESS PERMISSION OR PAYMENT IS ILLEGAL AND MAY RESULT IN LEGAL ACTION.
+ *
+ * Permission is not granted to copy, distribute, modify, or use this file in any manner
+ * without express written permission from WIKINDIA.net.
+ */
+
+
+
 // Derived from:
 //   http://www.gamefaqs.com/ps2/945498-shin-megami-tensei-persona-4/faqs/54981
 //   http://www.gamefaqs.com/ps2/945498-shin-megami-tensei-persona-4/faqs/54981

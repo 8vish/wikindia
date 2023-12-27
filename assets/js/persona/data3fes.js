@@ -1,3 +1,19 @@
+/*!
+ * Copyright (c) 2023 WIKINDIA.net
+ *
+ * data3fes.js
+ * Contains meticulously curated data for Persona 3 FES, including persona names, levels, arcana,
+ * and various other attributes essential for accurate calculations and gameplay mechanics within the game.
+ *
+ * **ALL RIGHTS RESERVED. UNAUTHORIZED USE AND/OR REPRODUCTION IS STRICTLY PROHIBITED.**
+ *
+ * USE WITHOUT EXPRESS PERMISSION OR PAYMENT IS ILLEGAL AND MAY RESULT IN LEGAL ACTION.
+ *
+ * Permission is not granted to copy, distribute, modify, or use this file in any manner
+ * without express written permission from WIKINDIA.net.
+ */
+
+
 // Derived from:
 //  http://www.gamefaqs.com/ps2/937269-shin-megami-tensei-persona-3-fes/faqs/52659
 //  http://www.gamefaqs.com/ps2/937269-shin-megami-tensei-persona-3-fes/faqs/53404

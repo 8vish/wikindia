@@ -1,3 +1,20 @@
+/*!
+ * Copyright (c) 2023 WIKINDIA.net
+ *
+ * data3p.js
+ * Houses comprehensive data exclusively for Persona 3 Portable, encompassing persona names, levels, arcana,
+ * and a variety of other attributes pivotal for precise calculations and seamless gameplay within the game.
+ *
+ * **ALL RIGHTS RESERVED. UNAUTHORIZED USE AND/OR REPRODUCTION IS STRICTLY PROHIBITED.**
+ *
+ * USE WITHOUT EXPRESS PERMISSION OR PAYMENT IS ILLEGAL AND MAY RESULT IN LEGAL ACTION.
+ *
+ * Permission is not granted to copy, distribute, modify, or use this file in any manner
+ * without express written permission from WIKINDIA.net.
+ */
+
+
+
 // Derived from:
 //  http://www.gamefaqs.com/psp/971508-shin-megami-tensei-persona-3-portable/faqs/64473
 

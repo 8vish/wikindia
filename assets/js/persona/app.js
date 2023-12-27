@@ -1,3 +1,37 @@
+/*!
+ * Copyright (c) 2023 WIKINDIA.net
+ *
+ * app.js
+ * Houses intricate calculations and distribution formulas specifically crafted for Persona 3 FES,
+ * Persona 3 Portable, Persona 4, and Persona 4 Golden, ensuring accurate and balanced gameplay mechanics.
+ *
+ * **ALL RIGHTS RESERVED. UNAUTHORIZED USE AND/OR REPRODUCTION IS STRICTLY PROHIBITED.**
+ *
+ * USE WITHOUT EXPRESS PERMISSION OR PAYMENT IS ILLEGAL AND MAY RESULT IN LEGAL ACTION.
+ *
+ * Permission is not granted to copy, distribute, modify, or use this file in any manner
+ * without express written permission from WIKINDIA.net.
+ */
+
+// Function to decode a base64 string
+function decodeBase64(encodedString) {
+    return atob(encodedString);
+  }
+  
+  // Encoded URLs and domain names
+  const encodedRedirectUrl = "aHR0cHM6Ly93aWtpbmRpYS5uZXQv"; // https://wikindia.net/
+  const encodedAllowedDomains = ["bG9jYWxob3N0", "d2lraW5kaWEubmV0", "MTI3LjAuMC4x"]; // localhost, wikindia.net, 127.0.0.1
+  
+  // Decode the URLs and domains
+  const redirectUrl = decodeBase64(encodedRedirectUrl);
+  const allowedDomains = encodedAllowedDomains.map(decodeBase64);
+  
+  // Check if the current domain is allowed
+  if (!allowedDomains.includes(window.location.hostname)) {
+    window.location.href = redirectUrl;
+  }
+  
+
 // Derive data:
 const personaeByName = (function() {
     var personaeByName_ = {};
