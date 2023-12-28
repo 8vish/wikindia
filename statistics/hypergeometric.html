@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypergeometric Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+        }
+
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .result-table th, .result-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .result-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Hypergeometric Calculator</h1>
+
+    <form id="hypergeometricForm">
+        <div class="form-group">
+            <label for="populationSize">Population size (N):</label>
+            <input type="number" class="form-control" id="populationSize" required>
+        </div>
+
+        <div class="form-group">
+            <label for="successItems">Number of success items in the population (K):</label>
+            <input type="number" class="form-control" id="successItems" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sampleSize">Sample size (n):</label>
+            <input type="number" class="form-control" id="sampleSize" required>
+        </div>
+
+        <div class="form-group">
+            <label for="drawnSuccessItems">Number of drawn success items (k):</label>
+            <input type="number" class="form-control" id="drawnSuccessItems" required>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="calculateHypergeometric()">Calculate</button>
+    </form>
+
+    <h2 class="mt-4">Results:</h2>
+    <div id="results" class="mt-3"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    function factorial(n) {
+        let result = 1;
+        for (let i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    function binomialCoefficient(n, k) {
+        return factorial(n) / (factorial(k) * factorial(n - k));
+    }
+
+    function hypergeometricPMF(N, K, n, k) {
+        const numerator = binomialCoefficient(K, k) * binomialCoefficient(N - K, n - k);
+        const denominator = binomialCoefficient(N, n);
+        return numerator / denominator;
+    }
+
+    function calculateHypergeometric() {
+        const N = parseInt(document.getElementById('populationSize').value);
+        const K = parseInt(document.getElementById('successItems').value);
+        const n = parseInt(document.getElementById('sampleSize').value);
+        const k = parseInt(document.getElementById('drawnSuccessItems').value);
+
+        if (k < 0 || k > Math.min(n, K) || n < 0 || N <= 0 || K < 0 || n > N) {
+            alert("Invalid input values. Please provide valid parameters.");
+            return;
+        }
+
+        const pmf = hypergeometricPMF(N, K, n, k);
+
+        const cdfGreaterThanK = Array.from({ length: Math.min(n, K) - k + 1 }, (_, i) =>
+            hypergeometricPMF(N, K, n, k + i)
+        ).reduce((sum, value) => sum + value, 0);
+
+        const cdfGreaterThanOrEqualK = Array.from({ length: Math.min(n, K) - k + 1 }, (_, i) =>
+            hypergeometricPMF(N, K, n, k + i)
+        ).reduce((sum, value) => sum + value, 0);
+
+        const cdfLessThanK = Array.from({ length: Math.min(n, K) }, (_, i) =>
+            hypergeometricPMF(N, K, n, i)
+        ).reduce((sum, value) => sum + value, 0);
+
+        const cdfLessThanOrEqualK = Array.from({ length: Math.min(n, K) + 1 }, (_, i) =>
+            hypergeometricPMF(N, K, n, i)
+        ).reduce((sum, value) => sum + value, 0);
+
+        const mean = (n * K) / N;
+        const variance = (n * K * (N - K) * (N - n)) / (N ** 2 * (N - 1));
+        const standardDeviation = Math.sqrt(variance);
+
+        const results = `
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Population size (N)</td><td>${N}</td></tr>
+                    <tr><td>Number of success items in the population (K)</td><td>${K}</td></tr>
+                    <tr><td>Sample size (n)</td><td>${n}</td></tr>
+                    <tr><td>Number of drawn success items (k)</td><td>${k}</td></tr>
+                    <tr><td>Probability P(X = ${k})</td><td>${pmf.toFixed(15)}</td></tr>
+                    <tr><td>Cumulative Probability P(X ≤ ${k})</td><td>${cdfLessThanOrEqualK.toFixed(15)}</td></tr>
+                    <tr><td>Cumulative Probability P(X < ${k})</td><td>${cdfLessThanK.toFixed(15)}</td></tr>
+                    <tr><td>Cumulative Probability P(X ≥ ${k})</td><td>${cdfGreaterThanOrEqualK.toFixed(15)}</td></tr>
+                    <tr><td>Cumulative Probability P(X > ${k})</td><td>${cdfGreaterThanK.toFixed(15)}</td></tr>
+                    <tr><td>Mean</td><td>${mean.toFixed(15)}</td></tr>
+                    <tr><td>Variance</td><td>${variance.toFixed(15)}</td></tr>
+                    <tr><td>Standard Deviation</td><td>${standardDeviation.toFixed(15)}</td></tr>
+                </tbody>
+            </table>
+        `;
+
+        document.getElementById('results').innerHTML = results;
+    }
+</script>
+</body>
+</html>
