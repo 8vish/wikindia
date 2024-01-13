@@ -13,23 +13,23 @@
  * without express written permission from WIKINDIA.net.
  */
 
-// Function to decode a base64 string
-function decodeBase64(encodedString) {
-    return atob(encodedString);
-  }
+// // Function to decode a base64 string
+// function decodeBase64(encodedString) {
+//     return atob(encodedString);
+//   }
   
-  // Encoded URLs and domain names
-  const encodedRedirectUrl = "aHR0cHM6Ly93aWtpbmRpYS5uZXQv"; // https://wikindia.net/
-  const encodedAllowedDomains = ["bG9jYWxob3N0", "d2lraW5kaWEubmV0", "MTI3LjAuMC4x"]; // localhost, wikindia.net, 127.0.0.1
+//   // Encoded URLs and domain names
+//   const encodedRedirectUrl = "aHR0cHM6Ly93aWtpbmRpYS5uZXQv"; // https://wikindia.net/
+//   const encodedAllowedDomains = ["bG9jYWxob3N0", "d2lraW5kaWEubmV0", "MTI3LjAuMC4x"]; // localhost, wikindia.net, 127.0.0.1
   
-  // Decode the URLs and domains
-  const redirectUrl = decodeBase64(encodedRedirectUrl);
-  const allowedDomains = encodedAllowedDomains.map(decodeBase64);
+//   // Decode the URLs and domains
+//   const redirectUrl = decodeBase64(encodedRedirectUrl);
+//   const allowedDomains = encodedAllowedDomains.map(decodeBase64);
   
-  // Check if the current domain is allowed
-  if (!allowedDomains.includes(window.location.hostname)) {
-    window.location.href = redirectUrl;
-  }
+//   // Check if the current domain is allowed
+//   if (!allowedDomains.includes(window.location.hostname)) {
+//     window.location.href = redirectUrl;
+//   }
   
 
 // Derive data:
